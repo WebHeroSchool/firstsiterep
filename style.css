@@ -25,11 +25,16 @@ body {
 }
 
 .menu__item {
-  padding: 0 13px;
+	position: relative;
+  margin-right: 26px;
+  font: bold 18px/21px pt_serif,arial,helvetica,sans-serif;
+  color: #000;
+  text-decoration: none;
+  transition: opacity .5s;
 }
 
 .menu__item:last-child {
-  padding-right: 0;
+  margin-right: 0;
 }
 
 .logo__circle {
@@ -51,4 +56,35 @@ body {
 
 .logo__circle_color_dark-blue {
 	background: #0056ec;
+}
+
+.menu__item:after {
+	position: absolute;
+	display: block;
+	content: '';
+	left: 0;
+	width: 0;
+	height: 3px;
+	background: #0056ec;
+	opacity: 0;
+	transition: opasity .5s, width .5s;
+}
+
+.menu__item:hover {
+	opacity: .5;
+}
+
+.menu__item:hover:after {
+	position: absolute;
+	display: block;
+	content: '';
+	left: 0;
+	width: 100%;
+	height: 3px;
+	background: #0056ec;
+}
+
+.menu__item:hover:after,.menu__item_active::after {
+	opacity: 1;
+	width: 100%;
 }
